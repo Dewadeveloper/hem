@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DEWA PRATAMA - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+                        url('https://images.unsplash.com/photo-1555066931-bf19f8fd1085?auto=format&q=80&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            min-height: auto;
+            padding: 50px 50px 30px 50px;
+            margin-bottom: 30px;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            background: rgba(0,0,0,0.6);
+            border-radius: 25px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .text-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .text-content h1 {
+            font-size: 3.5rem;
+            color: #0ff;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(0,255,255,0.5);
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0,255,255,0.3);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #0a192f;
+        }
+
+        /* Existing styles for other sections */
+        .container {
+            max-width: 1200px;
+            margin: -20px auto 0;
+            padding: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Styles untuk skills section */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 30px;
+            padding-top: 20px;
+        }
+
+        .skill-item {
+            flex: 0 0 calc(20% - 1.5rem);
+            min-width: 120px;
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,255,255,0.2);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            border-color: #0ff;
+            box-shadow: 0 0 20px rgba(0,255,255,0.3);
+        }
+
+        .skill-item img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            margin-top: 5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #0ff;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,255,255,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #0ff;
+            box-shadow: 0 0 20px rgba(0,255,255,0.3);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: #0ff;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #ccc;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tech span {
+            background: rgba(0,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #0ff;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #0ff;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 0 20px;
+            }
+
+            .content-wrapper {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+            }
+
+            .text-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .text-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        /* Tambahkan di bagian style */
+        .products-section {
+            margin-top: 5rem;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: #0ff;
+            box-shadow: 0 0 20px rgba(0,255,255,0.3);
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            color: #0ff;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: #ccc;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .product-features {
+            list-style-position: inside;
+            color: #ccc;
+        }
+
+        .product-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        /* Optional: Tambahkan transisi smooth */
+        .content-wrapper, .skills {
+            transition: all 0.3s ease;
+        }
+
+        .message-section {
+            margin-top: 5rem;
+            text-align: center;
+        }
+
+        .message-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,105,180,0.3);
+            transition: all 0.3s ease;
+            max-width: 400px;
+            margin: 0 auto;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        .message-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff69b4;
+            box-shadow: 0 0 20px rgba(255,105,180,0.4);
+        }
+
+        .message-title {
+            font-size: 2rem;
+            color: #ff69b4;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(255,105,180,0.5);
+        }
+
+        .message-text {
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media screen and (max-width: 768px) {
+            /* Mengatur container agar fit di mobile */
+            .container {
+                padding: 0.5rem;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            /* Mengatur hero section di mobile */
+            .hero-section {
+                padding: 20px 10px;
+            }
+
+            .content-wrapper {
+                padding: 15px;
+            }
+
+            /* Mengatur grid untuk skills */
+            .skills {
+                gap: 1rem;
+            }
+
+            .skill-item {
+                flex: 0 0 calc(33.33% - 1rem); /* 3 items per row di mobile */
+                min-width: 90px;
+                padding: 1rem;
+            }
+
+            .skill-item img {
+                width: 40px;
+                height: 40px;
+            }
+
+            /* Mengatur cards di mobile */
+            .project-card,
+            .product-card,
+            .message-card {
+                padding: 1.5rem;
+                margin: 0.5rem 0;
+            }
+
+            /* Mengatur font sizes di mobile */
+            .text-content h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .project-title,
+            .product-title {
+                font-size: 1.3rem;
+            }
+
+            /* Mengatur message section di mobile */
+            .message-card {
+                max-width: 90%;
+            }
+
+            .message-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Tambahan untuk mencegah horizontal scroll */
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Mengoptimalkan rendering */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Mengatur minimum scale untuk mobile */
+        @viewport {
+            width: device-width;
+            zoom: 1.0;
+            min-zoom: 0.5;
+            max-zoom: 1.0;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="content-wrapper">
+            <div class="text-content">
+                <h1>DEWA PRATAMA</h1>
+                <p class="subtitle" id="title"></p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="profile-image">
+                <img src="https://i.pinimg.com/736x/96/c1/24/96c124d3e9abcb4a6c0f63a33d450932.jpg" alt="Profile">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="skills">
+            <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                <span>Python</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+                <span>JavaScript</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+                <span>HTML5</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+                <span>CSS3</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
+                <span>PHP</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                <span>Node.js</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                <span>React</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+                <span>MySQL</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+                <span>MongoDB</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                <span>Git</span>
+            </div>
+        </div>
+
+        <div class="projects-section">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-list">
+                <div class="project-card">
+                    <h3 class="project-title">Discord Bot Assistant</h3>
+                    <p class="project-description">
+                        Bot Discord pintar yang dapat membantu mengelola server Anda dengan fitur moderasi,
+                        musik, dan sistem level yang canggih.
+                    </p>
+                    <ul class="project-features">
+                        <li>Sistem moderasi otomatis</li>
+                        <li>Fitur musik dengan playlist</li>
+                        <li>Sistem level dan reward</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">WhatsApp Business Automation</h3>
+                    <p class="project-description">
+                        Bot WhatsApp untuk bisnis yang dapat menangani pesan otomatis dan broadcast.
+                    </p>
+                    <ul class="project-features">
+                        <li>Auto-reply system</li>
+                        <li>Broadcast messaging</li>
+                        <li>Customer data management</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">E-Commerce Platform</h3>
+                    <p class="project-description">
+                        Platform e-commerce lengkap dengan sistem pembayaran dan manajemen produk.
+                    </p>
+                    <ul class="project-features">
+                        <li>Payment gateway integration</li>
+                        <li>Inventory management</li>
+                        <li>Analytics dashboard</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Social Media Manager</h3>
+                    <p class="project-description">
+                        Tool untuk mengelola multiple social media accounts.
+                    </p>
+                    <ul class="project-features">
+                        <li>Post scheduling</li>
+                        <li>Analytics tracking</li>
+                        <li>Content management</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">AI Chat Assistant</h3>
+                    <p class="project-description">
+                        Chatbot dengan AI untuk customer service automation.
+                    </p>
+                    <ul class="project-features">
+                        <li>Natural language processing</li>
+                        <li>Multi-platform integration</li>
+                        <li>Custom response training</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Data Analytics Dashboard</h3>
+                    <p class="project-description">
+                        Dashboard untuk visualisasi dan analisis data.
+                    </p>
+                    <ul class="project-features">
+                        <li>Real-time data visualization</li>
+                        <li>Custom report generation</li>
+                        <li>Data export capabilities</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="products-section">
+            <h2 class="section-title">Produk yang Dijual</h2>
+            <div class="product-list">
+                <div class="product-card">
+                    <h3 class="product-title">Bot WhatsApp Auto Market</h3>
+                    <p class="product-description">
+                        Bot otomatis untuk WhatsApp yang membantu dalam pemasaran produk dengan fitur pengiriman pesan massal dan interaksi otomatis.
+                    </p>
+                    <ul class="product-features">
+                        <li>Pengiriman pesan otomatis</li>
+                        <li>Integrasi dengan API WhatsApp</li>
+                        <li>Fitur analitik untuk melacak interaksi</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <h3 class="product-title">Bot Discord Auto Market</h3>
+                    <p class="product-description">
+                        Bot otomatis untuk Discord yang memudahkan pemasaran produk dengan fitur pengumuman dan interaksi pengguna.
+                    </p>
+                    <ul class="product-features">
+                        <li>Pengumuman otomatis di saluran</li>
+                        <li>Interaksi pengguna yang responsif</li>
+                        <li>Fitur manajemen komunitas</li>
+                    </ul>
+                </div>
+
+                <div class="product-card">
+                    <h3 class="product-title">Open Request</h3>
+                    <p class="product-description">
+                        Buka permintaan untuk proyek ringan sesuai kebutuhan Anda.
+                    </p>
+                    <ul class="product-features">
+                        <li>Proyek ringan sesuai permintaan</li>
+                        <li>Estimasi waktu dan biaya yang jelas</li>
+                        <li>Komunikasi langsung untuk kebutuhan spesifik</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-section">
+            <div class="message-card">
+                <h3 class="message-title">Love You Adel</h3>
+                <p class="message-text">hhe</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animasi typing untuk Software Developer
+            const titleElement = document.getElementById("title");
+            const titleText = "Software Developer";
+            let index = 0;
+            const typingSpeed = 50; // Kecepatan ketikan (ms)
+            
+            function typeTitle() {
+                if (index < titleText.length) {
+                    requestAnimationFrame(() => {
+                        titleElement.textContent = titleText.substring(0, index + 1);
+                        index++;
+                        setTimeout(typeTitle, typingSpeed);
+                    });
+                }
+            }
+
+            // Mulai animasi typing
+            setTimeout(typeTitle, 100);
+        });
+
+        // Tambahan optimisasi scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe semua card dan skill items
+        document.querySelectorAll('.project-card, .product-card, .skill-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'all 0.6s ease-out';
+            observer.observe(item);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fungsi untuk mengatur zoom level
+            function setOptimalZoom() {
+                const screenWidth = window.innerWidth;
+                const screenHeight = window.innerHeight;
+                const contentWidth = document.documentElement.scrollWidth;
+                
+                if (screenWidth < 768) {
+                    // Hitung zoom yang optimal
+                    const zoomLevel = Math.min(screenWidth / contentWidth, 1);
+                    
+                    // Update viewport meta
+                    const viewport = document.querySelector('meta[name="viewport"]');
+                    viewport.setAttribute('content', 
+                        `width=device-width, initial-scale=${zoomLevel}, maximum-scale=${zoomLevel}, user-scalable=no`);
+                }
+            }
+
+            // Panggil saat load dan resize
+            setOptimalZoom();
+            window.addEventListener('resize', setOptimalZoom);
+        });
+    </script>
+</body>
+</html>
